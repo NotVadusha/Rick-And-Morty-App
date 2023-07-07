@@ -12,3 +12,4 @@ function CharacterCard(characterInfo) {
 }
 
 export default CharacterCard;
+//
