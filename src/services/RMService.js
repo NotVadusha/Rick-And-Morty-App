@@ -1,5 +1,5 @@
-import HttpRmService from "./http.rmService";
-import HttpService from "./http.rmService";
+import HttpRmService from "./HTTPService";
+import HttpService from "./HTTPService";
 
 export default class RMService {
     constructor() {
