@@ -1,19 +1,18 @@
-import axios from "axios";
+import HttpRmService from "./http.rmService";
+import HttpService from "./http.rmService";
 
-const apiUrl = 'https://rickandmortyapi.com/api/character'
+export default class RMService {
+    constructor() {
+        this.api = new HttpService('https://rickandmortyapi.com/api/character');
 
-export const getCharactersPage = async (page) => {
-    try {
-        return await axios.get(apiUrl + `?page=${page}`);
-    } catch (e) {
-        return e;
     }
-}
 
-export const getCharacter = async (id) => {
-    try {
-        return await axios.get(apiUrl + `/${id}`);
-    } catch (e) {
-        return e;
+    getCharactersPage = async (page) => {
+        return await this.api.get(`?page=${page}`);
+    }
+
+    getCharacter = async (id) => {
+        return await this.api.get(`/${id}`);
+
     }
 }
