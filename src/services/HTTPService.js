@@ -3,7 +3,6 @@ import axios from "axios";
 export default class HttpService {
     constructor(url) {
         this.apiUrl = url;
-        this.fetcher = axios;
     }
 
     get = async (url) => {
