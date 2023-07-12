@@ -1,17 +1,14 @@
-import CharacterCard from "./characterCard";
+import CharacterCard from "./CharacterCard";
 
 function CharactersList(pageInfo) {
     return (
-
-        <div className={"container"}>
-            <ul className={"flex flex-wrap"}>
+        <div className={"container mx-auto py-8"}>
+            <ul className={"flex flex-wrap flex-none justify-center gap-8"}>
                 {pageInfo.data.map(character => {
-                    console.log(character)
                     return CharacterCard(character);
                 })}
             </ul>
         </div>
-
     );
 }
 
