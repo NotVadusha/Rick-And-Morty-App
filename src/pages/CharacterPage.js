@@ -1,7 +1,9 @@
 
 import {BiArrowBack} from "react-icons/bi";
+import {Link, useLoaderData} from "react-router-dom";
 
-function CharacterPage(characterInfo) {
+function CharacterPage() {
+    const characterInfo = useLoaderData();
     const additionalInfo = {
         Gender: characterInfo.data.gender,
         Status: characterInfo.data.status,
@@ -12,9 +14,9 @@ function CharacterPage(characterInfo) {
 
     return (
         <div className={"flex flex-col items-center mb-32 font-roboto"}>
-            <a className={"block text-lg font-bold font-karla my-6 mx-20 place-self-start"} href={'#'} >
+            <Link to={"/"} className={"block text-lg font-bold font-karla my-6 mx-20 place-self-start"} href={'#'} >
                 <BiArrowBack className={"inline"}/> GO BACK
-            </a>
+            </Link>
 
             <img className={"my-4 rounded-full border-4 border-slate-100 "} src={characterInfo.data.image}
                  alt={characterInfo.data.name}></img>
