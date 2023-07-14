@@ -1,6 +1,6 @@
 import HttpService from "./HTTPService";
 
-export default class RMService {
+export default class CharactersService {
     constructor() {
         this.api = new HttpService('https://rickandmortyapi.com/api/character');
     }
