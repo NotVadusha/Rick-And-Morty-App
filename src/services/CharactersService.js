@@ -11,6 +11,9 @@ export default class CharactersService {
 
     getCharacter = async (id) => {
         return await this.api.get(`/${id}`);
+    }
 
+    filterCharacterName = async (name) => {
+        return await this.api.get(`/?name=${name}`)
     }
 }
