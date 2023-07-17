@@ -4,11 +4,12 @@ import {useEffect, useState} from "react";
 import {useQuery} from "@tanstack/react-query";
 import {service} from "../services/CharactersService";
 import NotFound from "../components/NotFound";
+import ListSkeleton from "../components/ListSkeleton";
 
 function MainPage() {
     const [filter, _setFilter] = useState(sessionStorage.getItem("filter") || "");
 
-    const {data, refetch, isLoading, isError} = useQuery(
+    const {data, refetch, isPending, isError} = useQuery(
         ["characters"],
         () => service.filterCharacterName(filter),
         {
@@ -25,29 +26,39 @@ function MainPage() {
         sessionStorage.setItem("filter", value);
     };
 
-    if (isError){
+    if (isPending) {
         return (
             <>
                 <img
-                    className={"w-152 mx-auto my-3"}
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1920px-Rick_and_Morty.svg.png?20220319060844"
-                    alt="rick&morty logo"
+                    className={"mx-auto my-3"}
+                    src="/logo.svg"
+                    alt="Rick and Morty logo"
                 />
                 <Search filter={filter} setFilter={setFilter}/>
-                <NotFound />
+                <ListSkeleton cards={6}/>
             </>
         )
     }
 
-    if (isLoading){
-
+    if (isError) {
+        return (
+            <>
+                <img
+                    className={"mx-auto my-3"}
+                    src="/logo.svg"
+                    alt="rick&morty logo"
+                />
+                <Search filter={filter} setFilter={setFilter}/>
+                <NotFound/>
+            </>
+        )
     }
 
     return (
         <>
             <img
-                className={"w-152 mx-auto my-3"}
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1920px-Rick_and_Morty.svg.png?20220319060844"
+                className={"mx-auto my-3"}
+                src="/logo.svg"
                 alt="rick&morty logo"
             />
             <Search filter={filter} setFilter={setFilter}/>
