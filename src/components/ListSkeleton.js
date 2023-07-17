@@ -1,7 +1,7 @@
 function ListSkeleton({cards}) {
     return (
         <div>
-            <ul className={"flex flex-wrap flex-none justify-center gap-8"}>
+            <ul className={"flex flex-wrap flex-none justify-center gap-8 animate-pulse"}>
                 {Array(cards).fill(0).map((item) =>
                     <li>
                         <div className={"w-64 p-4 rounded-md shadow-md shadow-gray-500/50"}>
