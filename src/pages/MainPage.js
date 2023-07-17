@@ -35,7 +35,7 @@ function MainPage() {
                     alt="Rick and Morty logo"
                 />
                 <Search filter={filter} setFilter={setFilter}/>
-                <ListSkeleton cards={6}/>
+                <ListSkeleton cards={15}/>
             </>
         )
     }

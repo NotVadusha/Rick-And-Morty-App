@@ -1,6 +1,6 @@
 function ListSkeleton({cards}) {
     return (
-        <div>
+        <div className={"container mx-auto"}>
             <ul className={"flex flex-wrap flex-none justify-center gap-8 animate-pulse"}>
                 {Array(cards).fill(0).map((item) =>
                     <li>
