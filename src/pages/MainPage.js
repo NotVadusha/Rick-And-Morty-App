@@ -9,7 +9,7 @@ import Pagination from "../components/Pagination";
 
 function MainPage() {
     const [filter, _setFilter] = useState(sessionStorage.getItem("filter") || "");
-    const [page, _setPage] = useState(sessionStorage.getItem("page") || 1)
+    const [page, _setPage] = useState(parseInt(sessionStorage.getItem("page")) || 1)
 
     const {data, refetch, isFetching, isError} = useQuery(
         ["characters"],
