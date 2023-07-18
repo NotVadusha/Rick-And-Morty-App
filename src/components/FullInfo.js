@@ -8,7 +8,7 @@ const FullInfo = ({data}) => {
         Type: data.type,
     };
     return (<>
-            <img className={"my-4 rounded-full border-4 border-slate-100 "} src={data.image}
+            <img className={"my-4 rounded-full border-4 border-slate-100  w-76 h-76"} src={data.image}
                  alt={data.name}></img>
             <h1 className={"text-5xl"}>{data.name}</h1>
 

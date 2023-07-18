@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 
 function ErrorPage() {
     return (
-        <div className={"container"}>
+        <div className={"container mx-auto"}>
             <img className={"mx-auto"} src={"/logo.svg"} alt={"Rick and Morty logo"} />
             <h1 className={"text-center text-5xl font-roboto font-bold py-6"}>Something went wrong :(</h1>
             <p className={"text-center text-gray-500 text-2xl"}>
