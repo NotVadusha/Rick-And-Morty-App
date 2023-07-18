@@ -47,7 +47,8 @@ function MainPage() {
         setPage(page - 1)
     };
 
-    const isReady = !isError && !isFetching && data
+    const isReady = !isError && !isFetching && data;
+    const isNotFound = !isFetching && !data?.results || data?.results < 1;
 
     return (
         <>
@@ -57,13 +58,13 @@ function MainPage() {
                 alt="rick&morty logo"
             />
             <Search filter={filter} setFilter={setFilter}/>
-            <Pagination handlePrev={handlePrev}
+            {!isNotFound && <Pagination handlePrev={handlePrev}
                         handleNext={handleNext}
                         curPage={page}
                         pagesAmount={data?.info?.pages}
-            />
+            />}
             {isFetching && <ListSkeleton cards={15}/>}
-            {isError && <NotFound/>}
+            {isNotFound && <NotFound/>}
             {isReady && <CharactersList charactersArray={data.results}/>}
         </>
     );
