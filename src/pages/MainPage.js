@@ -34,12 +34,9 @@ function MainPage() {
                 alt="rick&morty logo"
             />
             <Search filter={filter} setFilter={setFilter}/>
-            {
-                isFetching ? <ListSkeleton cards={15}/> :
-                    isError ? <NotFound/> :
-                        data && <CharactersList charactersArray={data}/>
-            }
-S
+            {isFetching && <ListSkeleton cards={15} />}
+            {isError && <NotFound />}
+            {!isError && !isFetching && data && <CharactersList charactersArray={data} />}
         </>
     );
 }
