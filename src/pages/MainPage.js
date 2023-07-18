@@ -48,7 +48,7 @@ function MainPage() {
     };
 
     const isReady = !isError && !isFetching && data;
-    const isNotFound = !isFetching && !data?.results || data?.results < 1;
+    const isNotFound = (!isFetching && !data?.results) || data?.results < 1;
 
     return (
         <>
