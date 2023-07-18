@@ -1,15 +1,44 @@
 import CharactersList from "../components/CharactersList";
-import {useLoaderData} from "react-router-dom";
+import Search from "../components/Search";
+import {useEffect, useState} from "react";
+import {useQuery} from "@tanstack/react-query";
+import {service} from "../services/CharactersService";
+import NotFound from "../components/NotFound";
+import ListSkeleton from "../components/ListSkeleton";
 
-function MainPage(pageInfo) {
+function MainPage() {
+    const [filter, _setFilter] = useState(sessionStorage.getItem("filter") || "");
+
+    const {data, refetch, isFetching, isError} = useQuery(
+        ["characters"],
+        () => service.filterCharacterName(filter),
+        {
+            select: (data) => data.data.results
+        }
+    );
+
+    useEffect(() => {
+        refetch();
+    }, [filter, refetch])
+
+    const setFilter = (value) => {
+        _setFilter(value);
+        sessionStorage.setItem("filter", value);
+    };
+
+    const isReady = !isError && !isFetching && data
+
     return (
         <>
             <img
-                className={"w-80 mx-auto my-3"}
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1920px-Rick_and_Morty.svg.png?20220319060844"
+                className={"mx-auto my-3"}
+                src="/logo.svg"
                 alt="rick&morty logo"
             />
-            {CharactersList(pageInfo)}
+            <Search filter={filter} setFilter={setFilter}/>
+            {isFetching && <ListSkeleton cards={15} />}
+            {isError && <NotFound />}
+            {isReady && <CharactersList charactersArray={data} />}
         </>
     );
 }

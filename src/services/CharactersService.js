@@ -1,6 +1,6 @@
 import HttpService from "./HTTPService";
 
-export default class CharactersService {
+class CharactersService {
     constructor() {
         this.api = new HttpService('https://rickandmortyapi.com/api/character');
     }
@@ -11,6 +11,11 @@ export default class CharactersService {
 
     getCharacter = async (id) => {
         return await this.api.get(`/${id}`);
+    }
 
+    filterCharacterName = async (name) => {
+        return await this.api.get(`/?name=${name}`)
     }
 }
+
+export const service = new CharactersService();

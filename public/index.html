@@ -7,21 +7,24 @@
             name="description"
             content="Web site created using create-react-app"
     />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!--    <link href="../src/styles.css" rel="stylesheet">-->
+        <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/html" src="/src/index.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                fontFamily:{
-                    'roboto': ['Roboto', 'sans-serif'],
-                    'karla': ['Karla', 'sans-serif']
+        <script>
+            tailwind.config = {
+                theme: {
+                    fontFamily:{
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'karla': ['Karla', 'sans-serif']
+                    },
+                    extend: {
+                        spacing: {
+                            '152': '38rem'
+                        },
+                    },
                 },
-                extend: {},
-            },
-            plugins: [],
-        }
-    </script>
+                plugins: [],
+            }
+        </script>
     <title>Rick and Morty</title>
 </head>
 <body>
