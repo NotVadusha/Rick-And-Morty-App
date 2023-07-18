@@ -26,6 +26,8 @@ function MainPage() {
         sessionStorage.setItem("filter", value);
     };
 
+    const isReady = !isError && !isFetching && data
+
     return (
         <>
             <img
@@ -36,7 +38,7 @@ function MainPage() {
             <Search filter={filter} setFilter={setFilter}/>
             {isFetching && <ListSkeleton cards={15} />}
             {isError && <NotFound />}
-            {!isError && !isFetching && data && <CharactersList charactersArray={data} />}
+            {isReady && <CharactersList charactersArray={data} />}
         </>
     );
 }
