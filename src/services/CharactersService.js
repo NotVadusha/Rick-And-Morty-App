@@ -13,8 +13,8 @@ class CharactersService {
         return await this.api.get(`/${id}`);
     }
 
-    filterCharacterName = async (name) => {
-        return await this.api.get(`/?name=${name}`)
+    filterCharacterName = async (name, page) => {
+        return await this.api.get(`/?name=${name}&page=${page}`)
     }
 }
 
