@@ -26,7 +26,7 @@ function MainPage() {
     useEffect(() => {
         sessionStorage.setItem("filter", filter);
         refetch();
-    }, [filter, page])
+    }, [filter, page, refetch])
 
     const setPage = (page) => {
         _setPage(page);
