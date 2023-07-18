@@ -9,3 +9,6 @@ This app getting info about "rick and morty" characters via Rick&MortyAPI. Also,
 - react-query
 - tailwindCSS
 
+## Try it
+
+With npm start in console or with netify https://creative-panda-a0acef.netlify.app/
